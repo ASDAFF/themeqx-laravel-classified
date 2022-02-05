@@ -208,7 +208,7 @@ class PostController extends Controller
             'slug'                  => $slug,
             'post_content'          => $request->post_content,
             'type'                  => 'page',
-            'status'                => 1,
+            'status'                => 2,
             'show_in_header_menu'   => $show_in_header_menu,
             'show_in_footer_menu'   => $show_in_footer_menu,
         ];
@@ -259,7 +259,7 @@ class PostController extends Controller
         $data = [
             'title'                 => $request->title,
             'post_content'          => $request->post_content,
-            'status'                => 1,
+            'status'                => 2,
             'show_in_header_menu'   => $show_in_header_menu,
             'show_in_footer_menu'   => $show_in_footer_menu,
         ];

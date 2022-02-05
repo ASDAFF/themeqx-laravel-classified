@@ -44,7 +44,7 @@
                         <ul class="footer-menu">
                             <?php
                             use App\Post;
-                            $show_in_footer_menu = Post::whereStatus('1')->where('show_in_footer_menu', 1)->get();
+                            $show_in_footer_menu = Post::whereStatus('1')->where('show_in_footer_menu', 1)->get()
                             ?>
                             @if($show_in_footer_menu->count() > 0)
                                 @foreach($show_in_footer_menu as $page)

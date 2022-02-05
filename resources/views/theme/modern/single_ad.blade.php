@@ -114,7 +114,7 @@
                         <h3>@lang('app.general_info')</h3>
                         <p><strong><i class="fa fa-money"></i> @lang('app.price')</strong> {{ themeqx_price_ng($ad->price) }} </p>
                         <p><strong><i class="fa fa-map-marker"></i>  @lang('app.location') </strong> {!! $ad->full_address() !!} </p>
-                        <p><strong><i class="fa fa-check-circle-o"></i> @lang('app.condition')</strong> {{ $ad->ad_condition }} </p>
+                        <p><strong><i class="fa fa-check-circle-o"></i> @lang('app.condition')</strong> @lang('app.'. mb_strtolower($ad->ad_condition)) </p>
 
                         @if($enable_monetize)
                             {!! get_option('monetize_code_below_general_info') !!}
@@ -177,7 +177,7 @@
 
                         @if($ad->user->email)
                             <button class="btn btn-block" data-toggle="modal" data-target="#replyByEmail">
-                                <i class="fa fa-envelope-o"> @lang('app.reply_by_email')</i>
+                                <i class="fa fa-envelope-o"></i> <span>@lang('app.reply_by_email')</span>
                             </button>
                         @endif
 

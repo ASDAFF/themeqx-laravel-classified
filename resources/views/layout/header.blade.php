@@ -32,6 +32,7 @@
     <link href="{{ asset('assets/select2-3.5.3/select2-bootstrap.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/plugins/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/nprogress/nprogress.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/global.css') }}">
 
     <!-- Conditional page load script -->
     @if(request()->segment(1) === 'dashboard')
@@ -81,8 +82,8 @@
 <div class="header-nav-top">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-12 ">
-                <div class="topContactInfo">
+            <div class="col-md-5 col-sm-12 ">
+                <div class="topContactInfo{{ Request::url() === route('home') ? ' home' : '' }}">
                     <ul class="nav nav-pills">
                         @if(get_option('site_phone_number'))
                             <li>
@@ -105,7 +106,7 @@
                 </div>
 
             </div>
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-7 col-sm-12">
                 @if(Auth::check())
 
                     <div class="topContactInfo">
@@ -118,7 +119,7 @@
                             <li>
                                 <a href="{{ route('dashboard') }}">
                                     <i class="fa fa-dashboard"></i>
-                                    Dashboard </a>
+                                    @lang('app.dashboard')</a>
                             </li>
                             <li>
                                 <a href="{{ route('get_logout') }}">
@@ -155,20 +156,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('home') }}">
-                @if(get_option('logo_settings') == 'show_site_name')
-                    {{ get_option('site_name') }}
-                @else
-                    @if(logo_url())
-                        <img src="{{ logo_url() }}">
-                    @else
-                        {{ get_option('site_name') }}
-                    @endif
-                @endif
 
-            </a>
         </div>
+
         <div id="navbar" class="navbar-collapse collapse">
+                    <div class="main-head">
+
+                <a class="header-logo{{ Request::url() === route('home') ? ' home' : '' }}" href="{{ route('home') }}">
+                    @if(get_option('logo_settings') != 'show_site_name')
+                        @if(logo_url())
+                                <img src="{{ logo_url() }}">
+                        @else
+                            {{ get_option('site_name') }}
+                        @endif
+                    @endif
+
+                </a>
+            </div>
 
             <ul class="nav navbar-nav navbar-right">
                 <?php
@@ -193,7 +197,7 @@
 
                 @if(get_option('enable_language_switcher') == 1)
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@lang('app.language') <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('switch_language', 'en') }}">English</a></li>
                             @foreach(get_languages() as $lang)
@@ -208,3 +212,8 @@
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
+{{--
+<div class="container">
+
+
+</div>--}}

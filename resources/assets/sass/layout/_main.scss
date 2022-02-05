@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* Main
+------------------------------------------------ */
+.modern-top-hom-cat-section {
+  .modern-home-cat-with-sub-wrap {
+    .modern-cat-list-with-sub-wrap {
+      min-height: 300px;
+    }
+  }
+}
+
+.ads-item-thumbnail {
+  .ads-thumbnail {
+    img {
+      width: unset !important;
+      margin: auto;
+    }
+  }
+}

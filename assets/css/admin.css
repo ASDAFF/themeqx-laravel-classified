@@ -304,6 +304,10 @@ table.dataTable thead .sorting:after {
     font-size: 40px;
 }
 
+.adm.panel-heading {
+    min-height: 150px;
+}
+
 .panel-green {
     border-color: #5cb85c;
 }
@@ -357,6 +361,13 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.total-payments-amount {
+    font-size: 20px;
+}
+.total-payments-amount + sup {
+    font-size: 20px;
+    top: 0;
+}
 /**Customized **/
 .select2-container .select2-choice {
     background-image: none;
@@ -383,7 +394,7 @@ table.dataTable thead .sorting:after {
 .creating-ads-img-wrap{
     border: 1px solid #dddddd;
     float: left;
-    height: 150px;
+    /*height: 150px;*/
     width: 150px;
     padding: 5px;
     margin: 5px;

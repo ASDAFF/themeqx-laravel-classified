@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* Footer
+------------------------------------------------ */
+.footer {
+  .footer-top {
+    background: #de0715;
+    .footer-widget {
+      color: #ffd103;
+      h4 {
+        border-bottom: 2px solid #ffd103;
+      }
+      a {
+        color: #ffd103;
+      }
+    }
+  }
+}

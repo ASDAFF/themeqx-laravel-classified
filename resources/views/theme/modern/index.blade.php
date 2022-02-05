@@ -55,7 +55,7 @@
                                     </select>
                                 </div>
 
-                                <button type="submit" class="btn theme-btn"> <i class="fa fa-search"></i> Search Ads</button>
+                                <button type="submit" class="btn theme-btn"> <i class="fa fa-search"></i> @lang('app.search_ads')</button>
                             </form>
                         </div>
 

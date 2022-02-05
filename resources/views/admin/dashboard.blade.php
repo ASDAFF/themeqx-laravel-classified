@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
-                        <div class="panel-heading">
+                        <div class="adm panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="huge">{{ $approved_ads }}</div>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <div class="adm panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="huge">{{ $pending_ads }}</div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-red">
-                        <div class="panel-heading">
+                        <div class="adm panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="huge">{{ $blocked_ads }}</div>
@@ -69,7 +69,7 @@
                 @if($ten_contact_messages)
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-info">
-                        <div class="panel-heading">
+                        <div class="adm panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="huge">{{ $total_users }}</div>
@@ -82,7 +82,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-yellow">
-                        <div class="panel-heading">
+                        <div class="adm panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="huge">{{ $total_reports }}</div>
@@ -95,7 +95,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
+                        <div class="adm panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="huge">{{ $total_payments }}</div>
@@ -108,10 +108,10 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
+                        <div class="adm panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="huge">  {{ $total_payments_amount }} <sup>{{ get_option('currency_sign') }}</sup></div>
+                                    <div class="huge"><span class="total-payments-amount">{{ $total_payments_amount }}</span> <sup>{{ get_option('currency_sign') }}</sup></div>
                                     <div>@lang('app.total_payment')</div>
                                 </div>
                             </div>

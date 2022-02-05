@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* Header
+------------------------------------------------ */
+.main-head {
+  position: relative;
+  float: left;
+  .header-logo {
+    position: absolute;
+    top: -40px;
+    z-index: 1;
+    &.home {
+      top: 0;
+      & > img {
+        height: unset;
+      }
+    }
+    & > img {
+      height: 100px;
+    }
+  }
+}
+.header-nav-top{
+  .topContactInfo {
+    margin-left: 140px;
+    &.home {
+      margin-left: 0;
+    }
+  }
+}

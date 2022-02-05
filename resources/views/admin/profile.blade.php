@@ -42,7 +42,7 @@
                             </tr>
                             <tr>
                                 <th>@lang('app.gender')</th>
-                                <td>{{ ucfirst($user->gender) }}</td>
+                                <td>@lang('app.'. mb_strtolower(ucfirst($user->gender)))</td>
                             </tr>
                             <tr>
                                 <th>@lang('app.mobile')</th>

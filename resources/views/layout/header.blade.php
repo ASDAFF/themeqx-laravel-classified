@@ -87,9 +87,9 @@
                     <ul class="nav nav-pills">
                         @if(get_option('site_phone_number'))
                             <li>
-                                <a href="callto://+{{get_option('site_phone_number')}}">
+                                <a href="callto://{{get_option('site_phone_number')}}">
                                     <i class="fa fa-phone"></i>
-                                    +{{ get_option('site_phone_number') }}
+                                    {{ get_option('site_phone_number') }}
                                 </a>
                             </li>
                         @endif

@@ -121,7 +121,7 @@
                             <label for="price" class="col-md-4 control-label">@lang('app.price')</label>
                             <div class="col-md-4">
                                 <div class="input-group">
-                                    <span class="input-group-addon">$</span>
+                                    <span class="input-group-addon">{{ get_option('currency_sign') }}</span>
                                     <input type="text" placeholder="@lang('app.ex_price')" class="form-control" name="price" id="price" value="{{ old('price')? old('price') : $ad->price }}">
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
 
                             <div class="col-sm-8 col-md-offset-4">
                                 {!! $errors->has('price')? '<p class="help-block">'.$errors->first('price').'</p>':'' !!}
-                                <p class="text-info">Pick a good price. </p>
+                                <p class="text-info">@lang('app.pick_a_good_price')</p>
                             </div>
 
                         </div>

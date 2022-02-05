@@ -76,7 +76,7 @@
 
                             @foreach($countries as $country)
                                 <tr>
-                                    <td>{{$country->country_name}}</td>
+                                    <td>@lang('countries.'.$country->country_name)</td>
                                     <td>{{$country->country_code}}</td>
                                 </tr>
                                 @endforeach

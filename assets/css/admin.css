@@ -396,9 +396,12 @@ table.dataTable thead .sorting:after {
     float: left;
     /*height: 150px;*/
     width: 150px;
-    padding: 5px;
+    padding: 5px 5px 30px;
     margin: 5px;
     position: relative;
+}
+.creating-ads-img-wrap > img{
+    margin: auto;
 }
 .img-action-wrap {
     bottom: 0;

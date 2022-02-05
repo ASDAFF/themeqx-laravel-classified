@@ -208,7 +208,7 @@ class PostController extends Controller
             'slug'                  => $slug,
             'post_content'          => $request->post_content,
             'type'                  => 'page',
-            'status'                => 2,
+            'status'                => 1,
             'show_in_header_menu'   => $show_in_header_menu,
             'show_in_footer_menu'   => $show_in_footer_menu,
         ];

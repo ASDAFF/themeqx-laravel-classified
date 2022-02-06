@@ -43,7 +43,7 @@
                                     <select class="form-control select2" name="usage_single_country_id" id="usage_single_country_id">
                                         @php $saved_single_country_id = get_option('usage_single_country_id'); @endphp
                                         @foreach($countries as $country)
-                                            <option value="{{ $country->id }}" {{ $saved_single_country_id == $country->id? 'selected':'' }}>@lang('countries.'.$country->country_name)</option>
+                                            <option value="{{ $country->id }}" {{ $saved_single_country_id == $country->id? 'selected':'' }}>{{ trans('countries.'.$country->country_name) }}</option>
                                         @endforeach
 
                                     </select>

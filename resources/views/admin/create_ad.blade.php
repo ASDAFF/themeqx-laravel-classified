@@ -200,7 +200,7 @@
                                     <option value="">@lang('app.select_a_country')</option>
 
                                     @foreach($countries as $country)
-                                        <option value="{{ $country->id }}" {{ old('country') == $country->id ? 'selected' :'' }}>{{ $country->country_name }}</option>
+                                        <option value="{{ $country->id }}" {{ old('country') == $country->id ? 'selected' :'' }}>{{ trans('countries.'.$country->country_name) }}</option>
                                     @endforeach
                                 </select>
                                 {!! $errors->has('country')? '<p class="help-block">'.$errors->first('country').'</p>':'' !!}

@@ -494,7 +494,7 @@ return [
     'want_something_sell_quickly'           => 'Хотите продать что-то быстро?',
     'post_your_ad_quicly'                   => 'Разместите свое объявление быстро, с нами ваши личные данные в безопасности',
     'video_url'                             => 'Video URL',
-    'video_url_help'                        => 'Add youtube or vimeo url, ex. https://www.youtube.com/watch?v=video_id',
+    'video_url_help'                        => 'Добавьте URL-адрес YouTube или Vimeo, например: https://www.youtube.com/watch?v=video_id',
     'video_url_help_for_modern_theme'       => 'Эти функции только для темы Modern, если вы установите какое-либо видео, то изображение функции будет отключено на странице сведений об объявлении.',
     'default_style'                         => 'Стиль по умолчанию',
     'default_style_help_text'               => 'Установить цветовую схему по умолчанию',

@@ -64,7 +64,7 @@ class User extends Authenticatable
             $address .= $this->address;
 
         if ($this->country){
-            $address .= ', '.$this->country->country_name;
+            $address .= ', '. trans('countries.'.$this->country->country_name);
         }
 
         return $address;

@@ -21,7 +21,6 @@
 @endsection
 
 @section('main')
-
     <div class="modern-single-ad-top-description-wrap">
 
         <div class="container">

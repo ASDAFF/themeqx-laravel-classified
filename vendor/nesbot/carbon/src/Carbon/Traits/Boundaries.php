@@ -8,9 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace Carbon\Traits;
 
-use InvalidArgumentException;
+use Carbon\Exceptions\UnknownUnitException;
 
 /**
  * Trait Boundaries.
@@ -272,12 +273,7 @@ trait Boundaries
      */
     public function startOfWeek($weekStartsAt = null)
     {
-        $date = $this;
-        while ($date->dayOfWeek !== ($weekStartsAt ?? $this->firstWeekDay)) {
-            $date = $date->subDay();
-        }
-
-        return $date->startOfDay();
+        return $this->subDays((7 + $this->dayOfWeek - ($weekStartsAt ?? $this->firstWeekDay)) % 7)->startOfDay();
     }
 
     /**
@@ -296,12 +292,7 @@ trait Boundaries
      */
     public function endOfWeek($weekEndsAt = null)
     {
-        $date = $this;
-        while ($date->dayOfWeek !== ($weekEndsAt ?? $this->lastWeekDay)) {
-            $date = $date->addDay();
-        }
-
-        return $date->endOfDay();
+        return $this->addDays((7 - $this->dayOfWeek + ($weekEndsAt ?? $this->lastWeekDay)) % 7)->endOfDay();
     }
 
     /**
@@ -418,7 +409,7 @@ trait Boundaries
         $ucfUnit = ucfirst(static::singularUnit($unit));
         $method = "startOf$ucfUnit";
         if (!method_exists($this, $method)) {
-            throw new InvalidArgumentException("Unknown unit '$unit'");
+            throw new UnknownUnitException($unit);
         }
 
         return $this->$method(...$params);
@@ -444,7 +435,7 @@ trait Boundaries
         $ucfUnit = ucfirst(static::singularUnit($unit));
         $method = "endOf$ucfUnit";
         if (!method_exists($this, $method)) {
-            throw new InvalidArgumentException("Unknown unit '$unit'");
+            throw new UnknownUnitException($unit);
         }
 
         return $this->$method(...$params);

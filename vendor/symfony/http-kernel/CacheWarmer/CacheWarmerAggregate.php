@@ -26,6 +26,9 @@ class CacheWarmerAggregate implements CacheWarmerInterface
     private $optionalsEnabled = false;
     private $onlyOptionalsEnabled = false;
 
+    /**
+     * @param iterable<mixed, CacheWarmerInterface> $warmers
+     */
     public function __construct(iterable $warmers = [], bool $debug = false, string $deprecationLogsFilepath = null)
     {
         $this->warmers = $warmers;
@@ -44,14 +47,14 @@ class CacheWarmerAggregate implements CacheWarmerInterface
     }
 
     /**
-     * Warms up the cache.
+     * {@inheritdoc}
      */
-    public function warmUp(string $cacheDir)
+    public function warmUp(string $cacheDir): array
     {
         if ($collectDeprecations = $this->debug && !\defined('PHPUNIT_COMPOSER_INSTALL')) {
             $collectedLogs = [];
             $previousHandler = set_error_handler(function ($type, $message, $file, $line) use (&$collectedLogs, &$previousHandler) {
-                if (E_USER_DEPRECATED !== $type && E_DEPRECATED !== $type) {
+                if (\E_USER_DEPRECATED !== $type && \E_DEPRECATED !== $type) {
                     return $previousHandler ? $previousHandler($type, $message, $file, $line) : false;
                 }
 
@@ -61,7 +64,7 @@ class CacheWarmerAggregate implements CacheWarmerInterface
                     return null;
                 }
 
-                $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3);
+                $backtrace = debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS, 3);
                 // Clean the trace by removing first frames added by the error handler itself.
                 for ($i = 0; isset($backtrace[$i]); ++$i) {
                     if (isset($backtrace[$i]['file'], $backtrace[$i]['line']) && $backtrace[$i]['line'] === $line && $backtrace[$i]['file'] === $file) {
@@ -83,6 +86,7 @@ class CacheWarmerAggregate implements CacheWarmerInterface
             });
         }
 
+        $preload = [];
         try {
             foreach ($this->warmers as $warmer) {
                 if (!$this->optionalsEnabled && $warmer->isOptional()) {
@@ -92,26 +96,28 @@ class CacheWarmerAggregate implements CacheWarmerInterface
                     continue;
                 }
 
-                $warmer->warmUp($cacheDir);
+                $preload[] = array_values((array) $warmer->warmUp($cacheDir));
             }
         } finally {
             if ($collectDeprecations) {
                 restore_error_handler();
 
-                if (file_exists($this->deprecationLogsFilepath)) {
+                if (is_file($this->deprecationLogsFilepath)) {
                     $previousLogs = unserialize(file_get_contents($this->deprecationLogsFilepath));
-                    $collectedLogs = array_merge($previousLogs, $collectedLogs);
+                    if (\is_array($previousLogs)) {
+                        $collectedLogs = array_merge($previousLogs, $collectedLogs);
+                    }
                 }
 
                 file_put_contents($this->deprecationLogsFilepath, serialize(array_values($collectedLogs)));
             }
         }
+
+        return array_values(array_unique(array_merge([], ...$preload)));
     }
 
     /**
-     * Checks whether this warmer is optional or not.
-     *
-     * @return bool always false
+     * {@inheritdoc}
      */
     public function isOptional(): bool
     {

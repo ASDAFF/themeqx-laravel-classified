@@ -441,7 +441,7 @@ return [
     'total_payment'                 => 'Общий платеж',
     'latest_ten_contact_messages'   => 'Последние 10 контактных сообщений',
     'latest_ten_ads_report'         => 'Жалобы на последние 10 объявлений',
-    'sender'                        => 'Sender',
+    'sender'                        => 'Отправитель',
     'other_settings'                => 'Другие настройки',
     'site_logo'                     => 'Лого сайта',
     'sign_in'                     => 'Sign In',

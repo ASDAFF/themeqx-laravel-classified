@@ -84,7 +84,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group {{ $errors->has('password')? 'has-error':'' }}">
-                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" tabindex="5">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="@lang('app.password')" tabindex="5">
                                         {!! $errors->has('password')? '<p class="help-block">'.$errors->first('password').'</p>':'' !!}
 
                                     </div>

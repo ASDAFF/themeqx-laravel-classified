@@ -55,7 +55,7 @@
 
                                 <div class="input-group {{ $errors->has('email')? 'has-error':'' }}">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="email address">
+                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="@lang('app.email')">
 
                                 </div>
                                 {!! $errors->has('email')? '<p class="help-block">'.$errors->first('email').'</p>':'' !!}
@@ -63,7 +63,7 @@
 
                                 <div class="input-group {{ $errors->has('password')? 'has-error':'' }}">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input  type="password" class="form-control" name="password" placeholder="Password">
+                                    <input  type="password" class="form-control" name="password" placeholder="@lang('app.password')">
                                 </div>
                                 {!! $errors->has('password')? '<p class="help-block">'.$errors->first('password').'</p>':'' !!}
 

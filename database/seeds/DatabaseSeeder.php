@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(FavoriteTableSeeder::class);
         $this->call(LanguagesTableSeeder::class);
         $this->call(MediaTableSeeder::class);
+        $this->call(OptionsTableSeeder::class);
+        $this->call(PaymentsTableSeeder::class);
+        $this->call(PostTableSeeder::class);
+        $this->call(ReportAdTableSeeder::class);
 
     }
 }

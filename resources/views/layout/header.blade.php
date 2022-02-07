@@ -132,10 +132,10 @@
                 @else
                     <form action="{{route('login')}}" class="navbar-form navbar-right" role="form" method="post"> @csrf
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="email address">
+                            <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="@lang('app.email')">
                         </div>
                         <div class="form-group">
-                            <input  type="password" class="form-control" name="password" placeholder="Password">
+                            <input  type="password" class="form-control" name="password" placeholder="@lang('app.password')">
                         </div>
                         <button type="submit" class="btn btn-success">@lang('app.sign_in')</button>
                     </form>

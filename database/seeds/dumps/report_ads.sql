@@ -1,0 +1,2 @@
+INSERT INTO `report_ads` (`id`, `ad_id`, `reason`, `email`, `message`, `created_at`, `updated_at`) VALUES
+(2, 11, 'offensive', 'user@apex.com', 'This ad has an offensive content, please take a look\nMany Thanks', '2016-08-18 12:16:23', '2016-08-18 12:16:23');

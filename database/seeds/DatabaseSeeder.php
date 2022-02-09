@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentsTableSeeder::class);
         $this->call(PostTableSeeder::class);
         $this->call(ReportAdTableSeeder::class);
+        $this->call(SlidersTableSeeder::class);
+        $this->call(SocialAccountTableSeeder::class);
 
     }
 }
